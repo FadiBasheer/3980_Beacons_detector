@@ -1,4 +1,4 @@
-# Install script for directory: /home/fadi/work/Project1_3980/docs
+# Install script for directory: /home/ubuntu/BCIT/COMP 3980/Project1_3980/docs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

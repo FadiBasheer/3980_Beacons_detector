@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fadi/work/Project1_3980
+CMAKE_SOURCE_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/template2_test.dir/depend.make
@@ -68,29 +68,29 @@ include tests/CMakeFiles/template2_test.dir/flags.make
 
 tests/CMakeFiles/template2_test.dir/main.c.o: tests/CMakeFiles/template2_test.dir/flags.make
 tests/CMakeFiles/template2_test.dir/main.c.o: ../tests/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/template2_test.dir/main.c.o"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/template2_test.dir/main.c.o -c /home/fadi/work/Project1_3980/tests/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object tests/CMakeFiles/template2_test.dir/main.c.o"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/template2_test.dir/main.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/tests/main.c"
 
 tests/CMakeFiles/template2_test.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/template2_test.dir/main.c.i"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fadi/work/Project1_3980/tests/main.c > CMakeFiles/template2_test.dir/main.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/tests/main.c" > CMakeFiles/template2_test.dir/main.c.i
 
 tests/CMakeFiles/template2_test.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/template2_test.dir/main.c.s"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fadi/work/Project1_3980/tests/main.c -o CMakeFiles/template2_test.dir/main.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/tests/main.c" -o CMakeFiles/template2_test.dir/main.c.s
 
 tests/CMakeFiles/template2_test.dir/__/src/common.c.o: tests/CMakeFiles/template2_test.dir/flags.make
 tests/CMakeFiles/template2_test.dir/__/src/common.c.o: ../src/common.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/template2_test.dir/__/src/common.c.o"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/template2_test.dir/__/src/common.c.o -c /home/fadi/work/Project1_3980/src/common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object tests/CMakeFiles/template2_test.dir/__/src/common.c.o"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/template2_test.dir/__/src/common.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c"
 
 tests/CMakeFiles/template2_test.dir/__/src/common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/template2_test.dir/__/src/common.c.i"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fadi/work/Project1_3980/src/common.c > CMakeFiles/template2_test.dir/__/src/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" > CMakeFiles/template2_test.dir/__/src/common.c.i
 
 tests/CMakeFiles/template2_test.dir/__/src/common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/template2_test.dir/__/src/common.c.s"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fadi/work/Project1_3980/src/common.c -o CMakeFiles/template2_test.dir/__/src/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -o CMakeFiles/template2_test.dir/__/src/common.c.s
 
 # Object files for target template2_test
 template2_test_OBJECTS = \
@@ -107,18 +107,18 @@ tests/template2_test: /usr/local/lib/libcgreen.so
 tests/template2_test: /usr/local/lib/libdc_error.so
 tests/template2_test: /usr/local/lib/libdc_posix.so
 tests/template2_test: tests/CMakeFiles/template2_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable template2_test"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/template2_test.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable template2_test"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/template2_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/template2_test.dir/build: tests/template2_test
 .PHONY : tests/CMakeFiles/template2_test.dir/build
 
 tests/CMakeFiles/template2_test.dir/clean:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/tests && $(CMAKE_COMMAND) -P CMakeFiles/template2_test.dir/cmake_clean.cmake
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" && $(CMAKE_COMMAND) -P CMakeFiles/template2_test.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/template2_test.dir/clean
 
 tests/CMakeFiles/template2_test.dir/depend:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fadi/work/Project1_3980 /home/fadi/work/Project1_3980/tests /home/fadi/work/Project1_3980/cmake-build-debug /home/fadi/work/Project1_3980/cmake-build-debug/tests /home/fadi/work/Project1_3980/cmake-build-debug/tests/CMakeFiles/template2_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/tests" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/tests/CMakeFiles/template2_test.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : tests/CMakeFiles/template2_test.dir/depend
 

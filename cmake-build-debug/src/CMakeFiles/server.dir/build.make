@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fadi/work/Project1_3980
+CMAKE_SOURCE_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/server.dir/depend.make
@@ -68,42 +68,42 @@ include src/CMakeFiles/server.dir/flags.make
 
 src/CMakeFiles/server.dir/common.c.o: src/CMakeFiles/server.dir/flags.make
 src/CMakeFiles/server.dir/common.c.o: ../src/common.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/server.dir/common.c.o"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source=/home/fadi/work/Project1_3980/src/common.c -- /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/common.c.o -c /home/fadi/work/Project1_3980/src/common.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/server.dir/common.c.o"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -- /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/common.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c"
 
 src/CMakeFiles/server.dir/common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/common.c.i"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fadi/work/Project1_3980/src/common.c > CMakeFiles/server.dir/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" > CMakeFiles/server.dir/common.c.i
 
 src/CMakeFiles/server.dir/common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/common.c.s"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fadi/work/Project1_3980/src/common.c -o CMakeFiles/server.dir/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -o CMakeFiles/server.dir/common.c.s
 
 src/CMakeFiles/server.dir/server.c.o: src/CMakeFiles/server.dir/flags.make
 src/CMakeFiles/server.dir/server.c.o: ../src/server.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/server.dir/server.c.o"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source=/home/fadi/work/Project1_3980/src/server.c -- /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/server.c.o -c /home/fadi/work/Project1_3980/src/server.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/server.dir/server.c.o"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c" -- /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/server.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c"
 
 src/CMakeFiles/server.dir/server.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/server.c.i"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fadi/work/Project1_3980/src/server.c > CMakeFiles/server.dir/server.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c" > CMakeFiles/server.dir/server.c.i
 
 src/CMakeFiles/server.dir/server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/server.c.s"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fadi/work/Project1_3980/src/server.c -o CMakeFiles/server.dir/server.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c" -o CMakeFiles/server.dir/server.c.s
 
 src/CMakeFiles/server.dir/db.c.o: src/CMakeFiles/server.dir/flags.make
 src/CMakeFiles/server.dir/db.c.o: ../src/db.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/server.dir/db.c.o"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source=/home/fadi/work/Project1_3980/src/db.c -- /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/db.c.o -c /home/fadi/work/Project1_3980/src/db.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object src/CMakeFiles/server.dir/db.c.o"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c" -- /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/db.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c"
 
 src/CMakeFiles/server.dir/db.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/db.c.i"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/fadi/work/Project1_3980/src/db.c > CMakeFiles/server.dir/db.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c" > CMakeFiles/server.dir/db.c.i
 
 src/CMakeFiles/server.dir/db.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/db.c.s"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/fadi/work/Project1_3980/src/db.c -o CMakeFiles/server.dir/db.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c" -o CMakeFiles/server.dir/db.c.s
 
 # Object files for target server
 server_OBJECTS = \
@@ -126,18 +126,18 @@ src/server: /usr/local/lib/libdc_fsm.so
 src/server: /usr/local/lib/libdc_application.so
 src/server: /usr/local/lib/libconfig.so
 src/server: src/CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable server"
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable server"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/server.dir/build: src/server
 .PHONY : src/CMakeFiles/server.dir/build
 
 src/CMakeFiles/server.dir/clean:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -P CMakeFiles/server.dir/cmake_clean.cmake
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -P CMakeFiles/server.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/server.dir/clean
 
 src/CMakeFiles/server.dir/depend:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fadi/work/Project1_3980 /home/fadi/work/Project1_3980/src /home/fadi/work/Project1_3980/cmake-build-debug /home/fadi/work/Project1_3980/cmake-build-debug/src /home/fadi/work/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : src/CMakeFiles/server.dir/depend
 

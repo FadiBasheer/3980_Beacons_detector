@@ -13,6 +13,7 @@
 
 #define SIZE 1024
 
+// Client
 static void error_reporter(const struct dc_error *err);
 
 static void trace_reporter(const struct dc_posix_env *env, const char *file_name,

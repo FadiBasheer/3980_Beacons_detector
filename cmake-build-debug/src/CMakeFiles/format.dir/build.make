@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fadi/work/Project1_3980
+CMAKE_SOURCE_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug"
 
 # Utility rule file for format.
 
@@ -67,7 +67,7 @@ include src/CMakeFiles/format.dir/compiler_depend.make
 include src/CMakeFiles/format.dir/progress.make
 
 src/CMakeFiles/format:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && clang-format -i /home/fadi/work/Project1_3980/include/common.h /home/fadi/work/Project1_3980/src/common.c /home/fadi/work/Project1_3980/src/client.c /home/fadi/work/Project1_3980/src/server.c /home/fadi/work/Project1_3980/src/ncurses_Interface.c
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && clang-format -i /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/include/common.h /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/common.c /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/client.c /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/server.c /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/ncurses_Interface.c
 
 format: src/CMakeFiles/format
 format: src/CMakeFiles/format.dir/build.make
@@ -78,10 +78,10 @@ src/CMakeFiles/format.dir/build: format
 .PHONY : src/CMakeFiles/format.dir/build
 
 src/CMakeFiles/format.dir/clean:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug/src && $(CMAKE_COMMAND) -P CMakeFiles/format.dir/cmake_clean.cmake
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -P CMakeFiles/format.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/format.dir/clean
 
 src/CMakeFiles/format.dir/depend:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fadi/work/Project1_3980 /home/fadi/work/Project1_3980/src /home/fadi/work/Project1_3980/cmake-build-debug /home/fadi/work/Project1_3980/cmake-build-debug/src /home/fadi/work/Project1_3980/cmake-build-debug/src/CMakeFiles/format.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/format.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : src/CMakeFiles/format.dir/depend
 

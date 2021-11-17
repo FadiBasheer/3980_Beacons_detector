@@ -4,17 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/fadi/work/Project1_3980
-BuildDirectory: /home/fadi/work/Project1_3980/cmake-build-debug
+SourceDirectory: /home/ubuntu/BCIT/COMP 3980/Project1_3980
+BuildDirectory: /home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: fadi-HP-EliteBook-8560w
+Site: ubuntu-HP-Laptop-15-dy1xxx
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-g++
+BuildName: Linux-cc
 
 # Subprojects
 LabelsForSubprojects: 
@@ -26,8 +26,8 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake" "/home/fadi/work/Project1_3980"
-MakeCommand: /snap/cmake/955/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/snap/clion/169/bin/cmake/linux/bin/cmake" "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
+MakeCommand: /snap/clion/169/bin/cmake/linux/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -62,7 +62,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: g++
+Compiler: 
 CompilerVersion: 
 
 # Dynamic analysis (MemCheck)

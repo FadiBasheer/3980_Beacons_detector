@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fadi/work/Project1_3980
+CMAKE_SOURCE_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug"
 
 # Utility rule file for NightlyCoverage.
 
@@ -67,7 +67,7 @@ include CMakeFiles/NightlyCoverage.dir/compiler_depend.make
 include CMakeFiles/NightlyCoverage.dir/progress.make
 
 CMakeFiles/NightlyCoverage:
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/ctest -D NightlyCoverage
+	/snap/clion/169/bin/cmake/linux/bin/ctest -D NightlyCoverage
 
 NightlyCoverage: CMakeFiles/NightlyCoverage
 NightlyCoverage: CMakeFiles/NightlyCoverage.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/NightlyCoverage.dir/clean:
 .PHONY : CMakeFiles/NightlyCoverage.dir/clean
 
 CMakeFiles/NightlyCoverage.dir/depend:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fadi/work/Project1_3980 /home/fadi/work/Project1_3980 /home/fadi/work/Project1_3980/cmake-build-debug /home/fadi/work/Project1_3980/cmake-build-debug /home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles/NightlyCoverage.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980" "/home/ubuntu/BCIT/COMP 3980/Project1_3980" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles/NightlyCoverage.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyCoverage.dir/depend
 

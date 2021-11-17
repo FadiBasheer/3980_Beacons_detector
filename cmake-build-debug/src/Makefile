@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/169/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E rm -f
+RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/fadi/work/Project1_3980
+CMAKE_SOURCE_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/fadi/work/Project1_3980/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/169/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,7 +78,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+	/snap/clion/169/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -88,7 +88,7 @@ test/fast: test
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/169/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -98,13 +98,13 @@ edit_cache/fast: edit_cache
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
 install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
 # Special rule for the target list_install_components
@@ -119,37 +119,37 @@ list_install_components/fast: list_install_components
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
 install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_progress_start /home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles /home/fadi/work/Project1_3980/cmake-build-debug/src//CMakeFiles/progress.marks
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles 0
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src//CMakeFiles/progress.marks"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -158,22 +158,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/format.dir/rule:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/format.dir/rule
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/format.dir/rule
 .PHONY : src/CMakeFiles/format.dir/rule
 
 # Convenience name for target.
@@ -182,12 +182,12 @@ format: src/CMakeFiles/format.dir/rule
 
 # fast build rule for target.
 format/fast:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/format.dir/build.make src/CMakeFiles/format.dir/build
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/format.dir/build.make src/CMakeFiles/format.dir/build
 .PHONY : format/fast
 
 # Convenience name for target.
 src/CMakeFiles/server.dir/rule:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/server.dir/rule
 .PHONY : src/CMakeFiles/server.dir/rule
 
 # Convenience name for target.
@@ -196,12 +196,12 @@ server: src/CMakeFiles/server.dir/rule
 
 # fast build rule for target.
 server/fast:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/build
 .PHONY : server/fast
 
 # Convenience name for target.
 src/CMakeFiles/client.dir/rule:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/client.dir/rule
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/client.dir/rule
 .PHONY : src/CMakeFiles/client.dir/rule
 
 # Convenience name for target.
@@ -210,12 +210,12 @@ client: src/CMakeFiles/client.dir/rule
 
 # fast build rule for target.
 client/fast:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/build
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/build
 .PHONY : client/fast
 
 # Convenience name for target.
 src/CMakeFiles/ncurses_Interface.dir/rule:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ncurses_Interface.dir/rule
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/ncurses_Interface.dir/rule
 .PHONY : src/CMakeFiles/ncurses_Interface.dir/rule
 
 # Convenience name for target.
@@ -224,7 +224,7 @@ ncurses_Interface: src/CMakeFiles/ncurses_Interface.dir/rule
 
 # fast build rule for target.
 ncurses_Interface/fast:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/build
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/build
 .PHONY : ncurses_Interface/fast
 
 client.o: client.c.o
@@ -232,7 +232,7 @@ client.o: client.c.o
 
 # target to build an object file
 client.c.o:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.o
 .PHONY : client.c.o
 
 client.i: client.c.i
@@ -240,7 +240,7 @@ client.i: client.c.i
 
 # target to preprocess a source file
 client.c.i:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.i
 .PHONY : client.c.i
 
 client.s: client.c.s
@@ -248,7 +248,7 @@ client.s: client.c.s
 
 # target to generate assembly for a file
 client.c.s:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/client.c.s
 .PHONY : client.c.s
 
 common.o: common.c.o
@@ -256,9 +256,9 @@ common.o: common.c.o
 
 # target to build an object file
 common.c.o:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.o
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.o
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.o
 .PHONY : common.c.o
 
 common.i: common.c.i
@@ -266,9 +266,9 @@ common.i: common.c.i
 
 # target to preprocess a source file
 common.c.i:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.i
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.i
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.i
 .PHONY : common.c.i
 
 common.s: common.c.s
@@ -276,9 +276,9 @@ common.s: common.c.s
 
 # target to generate assembly for a file
 common.c.s:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.s
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.s
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/client.dir/build.make src/CMakeFiles/client.dir/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/common.c.s
 .PHONY : common.c.s
 
 db.o: db.c.o
@@ -286,7 +286,7 @@ db.o: db.c.o
 
 # target to build an object file
 db.c.o:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.o
 .PHONY : db.c.o
 
 db.i: db.c.i
@@ -294,7 +294,7 @@ db.i: db.c.i
 
 # target to preprocess a source file
 db.c.i:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.i
 .PHONY : db.c.i
 
 db.s: db.c.s
@@ -302,7 +302,7 @@ db.s: db.c.s
 
 # target to generate assembly for a file
 db.c.s:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/db.c.s
 .PHONY : db.c.s
 
 ncurses_Interface.o: ncurses_Interface.c.o
@@ -310,7 +310,7 @@ ncurses_Interface.o: ncurses_Interface.c.o
 
 # target to build an object file
 ncurses_Interface.c.o:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.o
 .PHONY : ncurses_Interface.c.o
 
 ncurses_Interface.i: ncurses_Interface.c.i
@@ -318,7 +318,7 @@ ncurses_Interface.i: ncurses_Interface.c.i
 
 # target to preprocess a source file
 ncurses_Interface.c.i:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.i
 .PHONY : ncurses_Interface.c.i
 
 ncurses_Interface.s: ncurses_Interface.c.s
@@ -326,7 +326,7 @@ ncurses_Interface.s: ncurses_Interface.c.s
 
 # target to generate assembly for a file
 ncurses_Interface.c.s:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/ncurses_Interface.dir/build.make src/CMakeFiles/ncurses_Interface.dir/ncurses_Interface.c.s
 .PHONY : ncurses_Interface.c.s
 
 server.o: server.c.o
@@ -334,7 +334,7 @@ server.o: server.c.o
 
 # target to build an object file
 server.c.o:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.o
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.o
 .PHONY : server.c.o
 
 server.i: server.c.i
@@ -342,7 +342,7 @@ server.i: server.c.i
 
 # target to preprocess a source file
 server.c.i:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.i
 .PHONY : server.c.i
 
 server.s: server.c.s
@@ -350,7 +350,7 @@ server.s: server.c.s
 
 # target to generate assembly for a file
 server.c.s:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/server.dir/build.make src/CMakeFiles/server.dir/server.c.s
 .PHONY : server.c.s
 
 # Help Target
@@ -396,6 +396,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/fadi/work/Project1_3980/cmake-build-debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/fadi/work/Project1_3980/src/common.c" "/home/fadi/work/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/common.c.o"
-  "/home/fadi/work/Project1_3980/src/db.c" "/home/fadi/work/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/db.c.o"
-  "/home/fadi/work/Project1_3980/src/server.c" "/home/fadi/work/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/server.c.o"
+  "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/common.c.o"
+  "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/db.c.o"
+  "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/server.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
