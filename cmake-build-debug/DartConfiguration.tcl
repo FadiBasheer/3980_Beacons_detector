@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/snap/cmake/955/bin/cmake" "/home/fadi/work/Project1_3980"
+ConfigureCommand: "/home/fadi/Downloads/CLion-2021.2.1/clion-2021.2.1/bin/cmake/linux/bin/cmake" "/home/fadi/work/Project1_3980"
 MakeCommand: /snap/cmake/955/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 

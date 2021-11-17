@@ -1,10 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/server.dir/common.c.o"
-  "CMakeFiles/server.dir/common.c.o.d"
   "CMakeFiles/server.dir/db.c.o"
-  "CMakeFiles/server.dir/db.c.o.d"
   "CMakeFiles/server.dir/server.c.o"
-  "CMakeFiles/server.dir/server.c.o.d"
   "server"
   "server.pdb"
 )

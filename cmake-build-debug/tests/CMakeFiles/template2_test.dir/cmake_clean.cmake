@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/template2_test.dir/__/src/common.c.o"
-  "CMakeFiles/template2_test.dir/__/src/common.c.o.d"
   "CMakeFiles/template2_test.dir/main.c.o"
-  "CMakeFiles/template2_test.dir/main.c.o.d"
   "template2_test"
   "template2_test.pdb"
 )
