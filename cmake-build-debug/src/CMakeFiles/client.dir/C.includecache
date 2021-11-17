@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/common.h
+
+/home/fadi/work/Project1_3980/src/client.c
+stdio.h
+-
+stdlib.h
+-
+dc_posix/dc_string.h
+-
+dc_posix/dc_netdb.h
+-
+dc_posix/dc_posix_env.h
+-
+dc_posix/dc_unistd.h
+-
+dc_posix/dc_signal.h
+-
+dc_posix/sys/dc_socket.h
+-
+string.h
+-
+unistd.h
+-
+ncurses.h
+-
+dc_posix/dc_stdlib.h
+-
+
+/home/fadi/work/Project1_3980/src/common.c
+common.h
+/home/fadi/work/Project1_3980/src/common.h
+stdio.h
+-
+
