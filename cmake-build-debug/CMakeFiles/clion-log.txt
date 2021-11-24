@@ -1,11 +1,4 @@
 /snap/clion/169/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
--- The C compiler identification is GNU 10.3.0
--- Detecting C compiler ABI info
--- Detecting C compiler ABI info - done
--- Check for working C compiler: /usr/bin/cc - skipped
--- Detecting C compile features
--- Detecting C compile features - done
--- Found Doxygen: /usr/bin/doxygen (found version "1.9.1") found components: doxygen dot 
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug

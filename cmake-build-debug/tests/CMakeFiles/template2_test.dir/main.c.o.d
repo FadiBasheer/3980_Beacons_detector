@@ -1,6 +1,7 @@
 tests/CMakeFiles/template2_test.dir/main.c.o: \
- /home/fadi/work/Project1_3980/tests/main.c /usr/include/stdc-predef.h \
- /home/fadi/work/Project1_3980/tests/tests.h \
+ /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/tests/main.c \
+ /usr/include/stdc-predef.h \
+ /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/tests/tests.h \
  /usr/local/include/cgreen/cgreen.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -8,7 +9,7 @@ tests/CMakeFiles/template2_test.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/long-double.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -36,13 +37,13 @@ tests/CMakeFiles/template2_test.dir/main.c.o: \
  /usr/local/include/cgreen/suite.h \
  /usr/local/include/cgreen/internal/suite_internal.h \
  /usr/local/include/cgreen/reporter.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/local/include/cgreen/breadcrumb.h \
  /usr/local/include/cgreen/internal/function_macro.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
  /usr/local/include/cgreen/text_reporter.h \
  /usr/local/include/cgreen/cdash_reporter.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
@@ -52,7 +53,6 @@ tests/CMakeFiles/template2_test.dir/main.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
  /usr/local/include/cgreen/cute_reporter.h \
  /usr/local/include/cgreen/assertions.h \
  /usr/local/include/cgreen/internal/assertions_internal.h \

@@ -69,28 +69,28 @@ include src/CMakeFiles/client.dir/flags.make
 src/CMakeFiles/client.dir/common.c.o: src/CMakeFiles/client.dir/flags.make
 src/CMakeFiles/client.dir/common.c.o: ../src/common.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object src/CMakeFiles/client.dir/common.c.o"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -- /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/common.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -- /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/common.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c"
 
 src/CMakeFiles/client.dir/common.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/common.c.i"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" > CMakeFiles/client.dir/common.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" > CMakeFiles/client.dir/common.c.i
 
 src/CMakeFiles/client.dir/common.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/common.c.s"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -o CMakeFiles/client.dir/common.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" -o CMakeFiles/client.dir/common.c.s
 
 src/CMakeFiles/client.dir/client.c.o: src/CMakeFiles/client.dir/flags.make
 src/CMakeFiles/client.dir/client.c.o: ../src/client.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object src/CMakeFiles/client.dir/client.c.o"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" -- /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/client.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c"
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && $(CMAKE_COMMAND) -E __run_co_compile --tidy="clang-tidy;-checks=*,-llvmlibc-restrict-system-libc-headers,-cppcoreguidelines-init-variables,-clang-analyzer-security.insecureAPI.strcpy,-concurrency-mt-unsafe,-android-cloexec-accept,-android-cloexec-dup,-google-readability-todo,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-cert-dcl03-c,-hicpp-static-assert,-misc-static-assert,-altera-struct-pack-align,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling;--quiet;--extra-arg-before=--driver-mode=gcc" --source="/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" -- /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/client.dir/client.c.o -c "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c"
 
 src/CMakeFiles/client.dir/client.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/client.dir/client.c.i"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" > CMakeFiles/client.dir/client.c.i
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" > CMakeFiles/client.dir/client.c.i
 
 src/CMakeFiles/client.dir/client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/client.dir/client.c.s"
-	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" -o CMakeFiles/client.dir/client.c.s
+	cd "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src" && /usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" -o CMakeFiles/client.dir/client.c.s
 
 # Object files for target client
 client_OBJECTS = \

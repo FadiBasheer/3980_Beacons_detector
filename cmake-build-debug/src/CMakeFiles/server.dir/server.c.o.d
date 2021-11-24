@@ -1,6 +1,6 @@
 src/CMakeFiles/server.dir/server.c.o: \
- /home/fadi/work/Project1_3980/src/server.c /usr/include/stdc-predef.h \
- /usr/local/include/dc_posix/dc_netdb.h \
+ /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/server.c \
+ /usr/include/stdc-predef.h /usr/local/include/dc_posix/dc_netdb.h \
  /usr/local/include/dc_posix/dc_posix_env.h \
  /usr/local/include/dc_error/error.h /usr/include/errno.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -11,8 +11,8 @@ src/CMakeFiles/server.dir/server.c.o: \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdbool.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/netdb.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h /usr/include/netdb.h \
  /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/types.h \
@@ -45,8 +45,8 @@ src/CMakeFiles/server.dir/server.c.o: \
  /usr/local/include/dc_posix/dc_posix_env.h \
  /usr/local/include/dc_posix/dc_unistd.h \
  /usr/local/include/dc_posix/dc_signal.h /usr/include/signal.h \
- /usr/include/x86_64-linux-gnu/bits/signum.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
  /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
@@ -64,12 +64,15 @@ src/CMakeFiles/server.dir/server.c.o: \
  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
  /usr/include/x86_64-linux-gnu/bits/sigthread.h \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
- /usr/local/include/dc_posix/dc_string.h \
+ /usr/local/include/dc_posix/dc_string.h /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/local/include/dc_posix/dc_stdlib.h \
  /usr/local/include/dc_posix/sys/dc_socket.h \
  /usr/local/include/dc_posix/dc_posix_env.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
- /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -77,11 +80,10 @@ src/CMakeFiles/server.dir/server.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
- /usr/include/x86_64-linux-gnu/bits/floatn.h \
- /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -89,6 +91,4 @@ src/CMakeFiles/server.dir/server.c.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h /usr/include/string.h \
- /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /home/fadi/work/Project1_3980/src/../include/db.h
+ /home/ubuntu/BCIT/COMP\ 3980/Project1_3980/src/../include/db.h

@@ -41,8 +41,11 @@ CMAKE_CODEBLOCKS_MAKE_ARGUMENTS:STRING=-j8
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
+//No help, variable specified on the command line.
+CMAKE_CXX_COMPILER:UNINITIALIZED=g++
+
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/usr/bin/cc
+CMAKE_C_COMPILER:STRING=/usr/bin/gcc
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -293,6 +296,9 @@ SITE:STRING=ubuntu-HP-Laptop-15-dy1xxx
 
 //Value Computed by CMake
 project1_BINARY_DIR:STATIC=/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug
+
+//Value Computed by CMake
+project1_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 project1_SOURCE_DIR:STATIC=/home/ubuntu/BCIT/COMP 3980/Project1_3980

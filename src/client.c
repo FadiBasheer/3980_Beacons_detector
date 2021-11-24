@@ -59,7 +59,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8081;
+            port = 8091;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -137,7 +137,10 @@ int main(void) {
 
                             dc_read(&env, &err, socket_fd, comingdata, SIZE);
 
-                            printf("\nfirst world: %s\n", comingdata);
+                            // test
+                        //    mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
+                            printw("\nfirst world: %s\n", comingdata);
+                        //    printf("\nfirst world: %s\n", comingdata);
                             dc_free(&env, comingdata, SIZE);
                             ////////////////////////////////////////////////////////////
                         }
