@@ -10,9 +10,6 @@
 #include <unistd.h>
 #include <string.h>
 #include "db.h"
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include <ctype.h>
 
 static void error_reporter(const struct dc_error *err);
@@ -22,7 +19,7 @@ static void trace_reporter(const struct dc_posix_env *env, const char *file_name
 
 static void quit_handler(int sig_num);
 
-int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t size);
+int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t size, char **response);
 
 static volatile sig_atomic_t exit_flag;
 
@@ -110,87 +107,37 @@ int main(void) {
 
                             while (!(exit_flag) && dc_error_has_no_error(&err)) {
                                 int client_socket_fd;
-                                char *response;
+                                char *response = NULL;
                                 client_socket_fd = dc_accept(&env, &err, server_socket_fd, NULL, NULL);
 
                                 if (dc_error_has_no_error(&err)) {
 
-                                    int receive_status = receive_data(&env, &err, client_socket_fd, BUFSIZ);
+                                    int receive_status = receive_data(&env, &err, client_socket_fd, BUFSIZ, &response);
 
-                                    switch (receive_status) {
-                                        case 1: {
-                                            // Get response
-                                            char respose_GET[] = "HTTP/1.0 200 OK\r\n"
-                                                                 "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
-                                                                 "Content-type: text/html\r\n"
-                                                                 "\r\n"
-
-                                                                 "<!Doctype html>\r\n"
-                                                                 "<html>\r\n"
-                                                                 "<head>\r\n"
-                                                                 "<title>GET response</title>\r\n"
-                                                                 "</head>\r\n"
-                                                                 "<body>\r\n"
-                                                                 "<div>\r\n"
-                                                                 "<h1>Examplehgjhgjhjgjhfgjhgjhgjhjh Domain</h1>\r\n"
-                                                                 "</div>\r\n"
-                                                                 "</body>"
-                                                                 "</html>\r\n\r\n";
-                                            response = malloc(strlen(respose_GET) + 1);
-                                            strcpy(response, respose_GET);
-                                        }
-                                            break;
-                                        case 2: {
-                                            // PUT response
-                                            char respose_PUT[] = "HTTP/1.0 200 OK\r\n"
-                                                                 "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
-                                                                 "Content-type: text/html\r\n"
-                                                                 "\r\n"
-
-                                                                 "<!Doctype html>\r\n"
-                                                                 "<html>\r\n"
-                                                                 "<head>\r\n"
-                                                                 "<title>PUT</title>\r\n"
-                                                                 "</head>\r\n"
-                                                                 "<body>\r\n"
-                                                                 "<div>\r\n"
-                                                                 "<h1>Data has been added/h1>\r\n"
-                                                                 "</div>\r\n"
-                                                                 "</body>"
-                                                                 "</html>\r\n\r\n";
-                                            response = malloc(strlen(respose_PUT) + 1);
-                                            strcpy(response, respose_PUT);
-                                        }
-                                            break;
-                                        default: {
-                                            // 500 response
-                                            char response_500[] = "HTTP/1.0 200 OK\r\n"
-                                                                  "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
-                                                                  "Content-type: text/html\r\n"
-                                                                  "\r\n"
-
-                                                                  "<!Doctype html>\r\n"
-                                                                  "<html>\r\n"
-                                                                  "<head>\r\n"
-                                                                  "<title>500</title>\r\n"
-                                                                  "</head>\r\n"
-                                                                  "<body>\r\n"
-                                                                  "<div>\r\n"
-                                                                  "<h1>500</h1>\r\n"
-                                                                  "</div>\r\n"
-                                                                  "</body>"
-                                                                  "</html>\r\n\r\n";
-                                            response = malloc(strlen(response_500) + 1);
-                                            strcpy(response, response_500);
-                                        }
-                                            break;
-                                    }
-                                    //PUT response
-
-                                    //404 when the database is empty
-
-                                    //500 if any err has happened that we can not handle
-
+//                                    switch (receive_status) {
+//                                        default: {
+//                                            // 500 response
+//                                            char response_500[] = "HTTP/1.0 200 OK\r\n"
+//                                                                  "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
+//                                                                  "Content-type: text/html\r\n"
+//                                                                  "\r\n"
+//
+//                                                                  "<!Doctype html>\r\n"
+//                                                                  "<html>\r\n"
+//                                                                  "<head>\r\n"
+//                                                                  "<title>500</title>\r\n"
+//                                                                  "</head>\r\n"
+//                                                                  "<body>\r\n"
+//                                                                  "<div>\r\n"
+//                                                                  "<h1>500</h1>\r\n"
+//                                                                  "</div>\r\n"
+//                                                                  "</body>"
+//                                                                  "</html>\r\n\r\n";
+//                                            response = malloc(strlen(response_500) + 1);
+//                                            strcpy(response, response_500);
+//                                        }
+//                                            break;
+//                                    }
 
 
                                     printf("\nResponse\n%s", response);
@@ -218,7 +165,7 @@ int main(void) {
     return EXIT_SUCCESS;
 }
 
-int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t size) {
+int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t size, char **response) {
     // more efficient would be to allocate the buffer in the caller (main) so we don't have to keep
     // mallocing and freeing the same data over and over again.
     char *data;
@@ -257,7 +204,84 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
 
         if (strcmp(firstWord, "GET") == 0) {
             char *file_name = strtok(inputCopy + strlen(firstWord) + 2, " ");
-            printf("\nBody is: %s\n", file_name);
+            printf("\nBody is:%s\n", file_name);
+            if (strncmp(file_name, "HTTP", 4) == 0) {
+                char respose_GET[] = "HTTP/1.0 200 OK\r\n"
+                                     "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
+                                     "Content-type: text/html\r\n"
+                                     "\r\n"
+
+                                     "<!Doctype html>\r\n"
+                                     "<html>\r\n"
+                                     "<head>\r\n"
+                                     "<title>GET response</title>\r\n"
+                                     "</head>\r\n"
+                                     "<body>\r\n"
+                                     "<div>\r\n"
+                                     "<h1>Examplehgjhgjhjgjhfgjhgjhgjhjh Domain</h1>\r\n"
+                                     "</div>\r\n"
+                                     "</body>"
+                                     "</html>\r\n\r\n";
+                *response = realloc(*response, strlen(respose_GET) + 1);
+
+                Read_dbm(env, err, 1);
+                // response = malloc(strlen(respose_PUT) + 1);
+                strcpy(*response, respose_GET);
+                printf("\nNcurses get\n");
+
+            } else if (strcmp(file_name, "read_database") == 0) {
+                printf("\nRead from database\n");
+
+
+            } else {
+                printf("\nRead from file\n");
+                int num;
+                FILE *fptr;
+
+                if ((fptr = fopen("fadi.txt", "r")) == NULL) {
+                    printf("Error! opening file");
+
+                    // Program exits if the file pointer returns NULL.
+                    exit(1);
+                }
+                fseek(fptr, 0, SEEK_END);
+                long fsize = ftell(fptr);
+                fseek(fptr, 0, SEEK_SET);  /* same as rewind(f); */
+
+                char *string = malloc((unsigned long) (fsize + 1));
+                fread(string, 1, (unsigned long) fsize, fptr);
+                printf("file contets is: %s", string);
+
+
+                char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
+                                            "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
+                                            "Content-type: text/html\r\n"
+                                            "\r\n"
+
+                                            "<!Doctype html>\r\n"
+                                            "<html>\r\n"
+                                            "<head>\r\n"
+                                            "<title>GET from file</title>\r\n"
+                                            "</head>\r\n"
+                                            "<body>\r\n"
+                                            "<div>\r\n"
+                                            "<h1>";
+                char response_GET_second[] = "</h1>\r\n"
+                                             "</div>\r\n"
+                                             "</body>"
+                                             "</html>\r\n\r\n";
+
+                dc_strcat(env, response_GET_first, string);
+                dc_strcat(env, response_GET_first, response_GET_second);
+                *response = realloc(*response, strlen(response_GET_first) + 1);
+
+
+                // response = malloc(strlen(respose_PUT) + 1);
+                dc_strcpy(env, *response, response_GET_first);
+
+                free(string);
+                fclose(fptr);
+            }
             return_value = 1;
         } else if (strcmp(firstWord, "PUT") == 0) {
             // 2- getting the size of body
@@ -287,20 +311,18 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
                     printf("\nminor: %s\n", minor);
                     printf("\nlongitude: %s\n", longitude);
                     printf("\nlatitude: %s\n", latitude);
-                }
 
-//                sub = strstr(body + 4, "latitude=");
-////               // tokenBody = strtok_r(body + 4, "-", &body);
-//                char *begin_lat = strchr(sub, '=');
-//                char *end_lat = strchr(begin_lat, '&');
-//                char longitude_number[end_lat - begin_lat-1];
-//                printf("\nlengthhhhhhhhhh: %ld\n", end_lat - begin_lat);
-//                strncpy(longitude_number, begin_lat, (unsigned long) (end_lat - begin_lat));
-//                printf("\nlatitude: %s\n", longitude_number);
+                    Write_dbm(env, err, major, minor, latitude, longitude);
+                }
             }
             return_value = 2;
         }
 
+        //PUT response
+
+        //404 when the database is empty
+
+        //500 if any err has happened that we can not handle
 
         while (token) {
             printf("token: %s %lu\n", token, strlen(token));
@@ -310,7 +332,7 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
 
         printf("\nlast token: %s\n", lastToken);
 
-        //Read_Write_dbm(env, err, firstWord, lastToken, fd);
+
         exit_flag = 1;
     }
 
@@ -332,6 +354,19 @@ static void trace_reporter(const struct dc_posix_env *env, const char *file_name
                            const char *function_name, size_t line_number) {
     fprintf(stderr, "Entering: %s : %s @ %zu\n", file_name, function_name, line_number);
 }
+
+
+
+//                sub = strstr(body + 4, "latitude=");
+////               // tokenBody = strtok_r(body + 4, "-", &body);
+//                char *begin_lat = strchr(sub, '=');
+//                char *end_lat = strchr(begin_lat, '&');
+//                char longitude_number[end_lat - begin_lat-1];
+//                printf("\nlengthhhhhhhhhh: %ld\n", end_lat - begin_lat);
+//                strncpy(longitude_number, begin_lat, (unsigned long) (end_lat - begin_lat));
+//                printf("\nlatitude: %s\n", longitude_number);
+
+
 
 
 //connect
