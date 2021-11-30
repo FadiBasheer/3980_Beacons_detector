@@ -60,7 +60,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8081;
+            port = 8080;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -315,6 +315,26 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
                     Write_dbm(env, err, major, minor, latitude, longitude);
                 }
             }
+            char respose_PUT[] = "HTTP/1.0 200 OK\r\n"
+                                 "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
+                                 "Content-type: text/html\r\n"
+                                 "\r\n"
+
+                                 "<!Doctype html>\r\n"
+                                 "<html>\r\n"
+                                 "<head>\r\n"
+                                 "<title>PUT response</title>\r\n"
+                                 "</head>\r\n"
+                                 "<body>\r\n"
+                                 "<div>\r\n"
+                                 "<h1>PUT response</h1>\r\n"
+                                 "</div>\r\n"
+                                 "</body>"
+                                 "</html>\r\n\r\n";
+            *response = realloc(*response, strlen(respose_PUT) + 1);
+
+            // response = malloc(strlen(respose_PUT) + 1);
+            strcpy(*response, respose_PUT);
             return_value = 2;
         }
 
