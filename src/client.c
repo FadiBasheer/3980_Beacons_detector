@@ -118,7 +118,7 @@ int main(void) {
                                 getstr(str);
                                 if (strcmp(str, "1") == 0) {
                                     strcpy(data,
-                                           "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
+                                           "GET / HTTP/1.0\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
                                     dc_write(&env, &err, socket_fd, data, strlen(data));
                                     mvprintw(LINES - 2, 0, "You Entered: %s", str);
                                 } else if (strcmp(str, "2") == 0) {
