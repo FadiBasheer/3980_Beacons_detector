@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <string.h>
 #include <malloc.h>
+#include <time.h>
 #include <dc_posix/dc_stdlib.h>
 
 
@@ -17,44 +18,55 @@
 #define DB_NAME    "phones"
 
 
-void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, char *data, int fd) {
-    char *major = "1";
-    char *minor = "2";
+void get_data_from_database(struct dc_posix_env *env, struct dc_error *err, DBM *db);
+void delete_from_database(struct dc_posix_env *env, struct dc_error *err, DBM *db);
+
+void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, char *data, int fd, char *mjr, char *mnr, char *lt, char *ln) {
     DBM *db;
+
+    // TO DELETE LATER (these 2 lines)
     datum name = {NAME, sizeof(NAME)};
-    datum dataMaj = {major, sizeof(major)};
-
-    datum put_phone_no = {PHONE_NO, sizeof(PHONE_NO)};
     datum datamm = {data, sizeof(data)};
-    datum dataMin = {minor, sizeof(minor)};
 
 
-    printf(" size of data: %zu\n", sizeof(data));
-    printf("Data %s\n", data);
-    datum get_maj;
-    datum get_min;
+    //-----------------
+    char * newKey = (char *)malloc(strlen(mjr)  + strlen(mnr) + 1);
 
-    char maj[5] = "major";
-    char min[5] = "minor";
-    datum majKey = {(void *)maj, strlen(maj) + 1};
-    datum minKey = {(void *)min, strlen(min) + 1};
+    char delim[] = "-";
+    char *delimPtr = delim;
+    strcpy(newKey, mjr);
+    strcat(newKey, delimPtr);
+    strcat(newKey, mnr);
+    printf("TEST NEW KEY = %s\n", newKey);
+
+    char * newVal = (char *)malloc(strlen(lt)  + strlen(ln) + 1);
+
+    strcpy(newVal, lt);
+    strcat(newVal, delimPtr);
+    strcat(newVal, ln);
+    printf("TEST NEW VALUE = %s\n", newVal);
+
+    datum dataVal = {newVal, sizeof(newVal)};
+    datum dataKey = {newKey, sizeof(newKey)};
+    // -----------------------
+
 
     // Open the database and store the record
     db = dc_dbm_open(env, err, DB_NAME, DC_O_RDWR | DC_O_CREAT, 0600);
     if (strcmp(type, "POST") == 0) {
-        dc_dbm_store(env, err, db, majKey, dataMaj, DBM_REPLACE);
-        dc_dbm_store(env, err, db, minKey, dataMin, DBM_REPLACE);
+        dc_dbm_store(env, err, db, dataKey, dataVal, DBM_REPLACE);
     }
 
         // Retrieve the record
     else {
-        dc_dbm_store(env, err, db, majKey, dataMaj, DBM_REPLACE);
-        dc_dbm_store(env, err, db, minKey, dataMin, DBM_REPLACE);
+        dc_dbm_store(env, err, db, dataKey, dataVal, DBM_REPLACE);
 
-        get_maj = dc_dbm_fetch(env, err, db, majKey);
-        printf("\nTest get Major: %s\n", get_maj.dptr);
-        get_min = dc_dbm_fetch(env, err, db, minKey);
-        printf("Test get Minor: %s\n\n", get_min.dptr);
+//        get_data_from_database(env, err, db);
+//        delete_from_database(env, err, db);
+        get_data_from_database(env, err, db);
+
+
+        // TO DELETE LATER
         /////////////////////////////////////////////////////////////////////////////
         size_t size = strlen((char *) name.dptr) + strlen((char *) datamm.dptr) + 1;// +1 for the null-terminator
         char *result = dc_malloc(env, err, size);
@@ -63,12 +75,32 @@ void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, 
         strcat(result, (char *) datamm.dptr);
         dc_write(env, err, fd, result, size);
         /////////////////////////////////////////////////////////////////////////////////
-        printf("Name: %s, Phone Number: %s\n", (char *) name.dptr, (char *) datamm.dptr);
-  //      printf("Major: %s, Minor: %s\n", (char *) name.dptr, (char *) datamm.dptr);
+
         dc_free(env, result, size);
     }
 
-
     // Close the database
     dc_dbm_close(env, err, db);
+
+}
+
+void get_data_from_database(struct dc_posix_env *env, struct dc_error *err, DBM *db) {
+    datum key;
+    datum get_maj;
+    printf("\nget all data from database:\n");
+    for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
+
+        get_maj = dc_dbm_fetch(env, err, db, key);
+        printf("getting data: %s, %s\n", key.dptr, get_maj.dptr);
+
+    }
+}
+
+void delete_from_database(struct dc_posix_env *env, struct dc_error *err, DBM *db) {
+    datum key;
+    printf("\ndelete from database called\n");
+    for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_firstkey(env, err, db)) {
+        printf("deleting key: %s\n", key.dptr);
+        dc_dbm_delete(env, err, db, key);
+    }
 }

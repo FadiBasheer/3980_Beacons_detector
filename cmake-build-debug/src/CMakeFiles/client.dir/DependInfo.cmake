@@ -11,7 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/client.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/client.dir/client.c.o"
   "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/common.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/client.dir/common.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C

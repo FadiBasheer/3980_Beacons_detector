@@ -14,7 +14,7 @@ CostDataFile:
 Site: ubuntu-HP-Laptop-15-dy1xxx
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-g++
+BuildName: Linux-clang
 
 # Subprojects
 LabelsForSubprojects: 
@@ -27,7 +27,7 @@ NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
 ConfigureCommand: "/snap/clion/169/bin/cmake/linux/bin/cmake" "/home/ubuntu/BCIT/COMP 3980/Project1_3980"
-MakeCommand: /snap/clion/169/bin/cmake/linux/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+MakeCommand: /snap/cmake/992/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -62,7 +62,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: g++
+Compiler: 
 CompilerVersion: 
 
 # Dynamic analysis (MemCheck)

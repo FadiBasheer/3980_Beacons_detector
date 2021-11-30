@@ -12,7 +12,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/db.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/db.c.o"
   "/home/ubuntu/BCIT/COMP 3980/Project1_3980/src/server.c" "/home/ubuntu/BCIT/COMP 3980/Project1_3980/cmake-build-debug/src/CMakeFiles/server.dir/server.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_C

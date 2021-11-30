@@ -59,7 +59,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8091;
+            port = 8085;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -122,6 +122,7 @@ int main(void) {
                                            "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
                                     dc_write(&env, &err, socket_fd, data, strlen(data));
                                     mvprintw(LINES - 2, 0, "You Entered: %s", str);
+
                                 } else if (strcmp(str, "2") == 0) {
                                     getch();
                                     endwin();
@@ -139,8 +140,8 @@ int main(void) {
 
                             // test
                         //    mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
-                            printw("\nfirst world: %s\n", comingdata);
-                        //    printf("\nfirst world: %s\n", comingdata);
+                        //    printw("\nfirst world: %s\n", comingdata);
+                            printf("\nfirst world: %s\n", comingdata);
                             dc_free(&env, comingdata, SIZE);
                             ////////////////////////////////////////////////////////////
                         }

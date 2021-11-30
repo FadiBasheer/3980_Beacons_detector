@@ -5,6 +5,6 @@
 #ifndef PROJECT1_DB_H
 #define PROJECT1_DB_H
 
-void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, char *data,int fd);
+void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, char *data, int fd, char *mjr, char *mnr, char *lt, char *ln);
 
 #endif //PROJECT1_DB_H
