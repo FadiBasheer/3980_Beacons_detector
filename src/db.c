@@ -95,32 +95,69 @@ char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
     DBM *db;
     datum key;
     datum get_maj;
+    size_t size = 1;
 
-    // char response[] = "Beacons in Data base";
     char *response;
+    char delim2[] = "\n";
+    char *delimPtr2 = delim2;
+    char delimComma[] = ",";
+    char *delimCommaPtr = delimComma;
 
 
     db = dc_dbm_open(env, err, DB_NAME, O_RDONLY, 0600);
 
+    char header[] = "Beacons in Data base: ";
+    size += strlen(header);
     for (key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
+
         get_maj = dc_dbm_fetch(env, err, db, key);
-        printf("\ngetting data: %s, %s\n", key.dptr, get_maj.dptr);
-
-        //response = calloc(strlen(key.dptr), sizeof(char));
-
-
-        response = calloc((strlen(get_maj.dptr) + strlen(key.dptr)), sizeof(char));
-        strcat(response, key.dptr);
-        strcat(response, get_maj.dptr);
-
-
-
-
-
-//        dc_strcat(env, response, key.dptr);
-//        //dc_strcat(env, response, "\r\n");
-//        dc_strcat(env, response, get_maj.dptr);
+        size += strlen((char *) key.dptr) + strlen((char *) delimCommaPtr) + strlen((char *) get_maj.dptr) +
+                strlen((char *) delimPtr2);// +1 for the null-terminator
     }
+    char *result = dc_malloc(env, err, size);
+    strcpy(result, header);
+
+
+    for (key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
+
+        get_maj = dc_dbm_fetch(env, err, db, key);
+        printf("data: %s, %s\n", key.dptr, get_maj.dptr);
+
+        // in real code you would check for errors in malloc here
+        strcat(result, (char *) key.dptr);
+        strcat(result, (char *) delimCommaPtr);
+        strcat(result, (char *) get_maj.dptr);
+        strcat(result, (char *) delimPtr2);
+    }
+
+
+
+
+
+
+
+
+
+
+//    for (key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
+//        get_maj = dc_dbm_fetch(env, err, db, key);
+//        printf("\ngetting data: %s, %s\n", key.dptr, get_maj.dptr);
+//
+//        //response = calloc(strlen(key.dptr), sizeof(char));
+//
+//
+//        response = calloc((strlen(get_maj.dptr) + strlen(key.dptr)), sizeof(char));
+//        strcat(response, key.dptr);
+//        strcat(response, get_maj.dptr);
+//
+//
+//
+//
+//
+////        dc_strcat(env, response, key.dptr);
+////        //dc_strcat(env, response, "\r\n");
+////        dc_strcat(env, response, get_maj.dptr);
+//    }
 
 
 //    char *response = calloc(strlen(response), sizeof(char));
@@ -129,7 +166,7 @@ char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
 
 
 
-    printf("\nstrlen(response) + 1: %lu\n", strlen(response) + 1);
+    printf("\nstrlen(response) + 1: %lu\n", strlen(result) + 1);
 
 
 //    size_t size = strlen(response) + 1;// +1 for the null-terminator
@@ -154,7 +191,7 @@ char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
     // Close the database
     dc_dbm_close(env, err, db);
 
-    printf("\nfinal database: %s\n", response);
-    return response;
+    printf("\nfinal database: %s\n", result);
+    return result;
 }
 
