@@ -59,7 +59,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8085;
+            port = 8099;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -107,7 +107,7 @@ int main(void) {
 //                            }
 
 
-                            char mesg[] = "Enter a string: ";         /* message to be appeared on the screen */
+                            char mesg[] = "Enter 1 to get becans: ";         /* message to be appeared on the screen */
                             char str[80];
                             int row, col;                            /* to store the number of rows and *
                                                  * the number of colums of the screen */
@@ -115,24 +115,43 @@ int main(void) {
                             getmaxyx(stdscr, row, col);               /* get the number of rows and columns */
                             mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
                             /* print the message at the center of the screen */
-                            while (dc_error_has_no_error(&err)) {
-                                getstr(str);
-                                if (strcmp(str, "1") == 0) {
-                                    strcpy(data,
-                                           "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
-                                    dc_write(&env, &err, socket_fd, data, strlen(data));
-                                    mvprintw(LINES - 2, 0, "You Entered: %s", str);
-
-                                } else if (strcmp(str, "2") == 0) {
-                                    getch();
-                                    endwin();
-                                    break;
-                                }
-                            }
+//                            while (dc_error_has_no_error(&err)) {
+//                                getstr(str);
+//                                if (strcmp(str, "1") == 0) {
+//                                    strcpy(data,
+//                                           "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
+//                                    dc_write(&env, &err, socket_fd, data, strlen(data));
+//                                    mvprintw(LINES - 2, 0, "You Entered: %s", str);
+//
+//                                } else if (strcmp(str, "2") == 0) {
+//                                    getch();
+//                                    endwin();
+//                                    break;
+//                                }
+//                            }
                             if (err.type == DC_ERROR_ERRNO && err.errno_code == EINTR) {
                                 dc_error_reset(&err);
                             }
                             ///////////////////////////////////////////////////////////////
+
+
+                            // test
+
+
+                            getstr(str);
+                            if (strcmp(str, "1") == 0) {
+                                strcpy(data,
+                                       "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
+                                dc_write(&env, &err, socket_fd, data, strlen(data));
+                            //    mvprintw(LINES - 2, 0, "You Entered: %s", str);
+
+                            } else if (strcmp(str, "2") == 0) {
+                                getch();
+                                endwin();
+                            //    break;
+                            }
+
+                            printw("\n\nBecans");
 
                             char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
 
@@ -140,10 +159,16 @@ int main(void) {
 
                             // test
                         //    mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
-                        //    printw("\nfirst world: %s\n", comingdata);
-                            printf("\nfirst world: %s\n", comingdata);
+                            printw("\nfirst world: %s\n", comingdata);
+                        //    printf("\nfirst world: %s\n", comingdata);
+
+                        //    mvprintw(LINES-2, 0,"message number 2");
+
                             dc_free(&env, comingdata, SIZE);
                             ////////////////////////////////////////////////////////////
+
+                            getch();
+                            endwin();
                         }
                     }
                 }

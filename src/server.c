@@ -60,7 +60,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8085;
+            port = 8099;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -172,13 +172,13 @@ void receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t
         printf("\nlast token: %s\n", lastToken);
 
         // FOR TESTING
-        char a[] = "11";
+        char a[] = "12";
         char *aPtr = a;
-        char b[] = "22";
+        char b[] = "23";
         char *bPtr = b;
-        char c[] = "33";
+        char c[] = "34";
         char *cPtr = c;
-        char d[] = "44";
+        char d[] = "45";
         char *dPtr = d;
 
         Read_Write_dbm(env, err, firstWord, lastToken, fd, aPtr, bPtr, cPtr, dPtr);
