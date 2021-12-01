@@ -218,54 +218,6 @@ void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, 
   //      delete_from_database(env, err, db);
         get_data_from_database(env, err, db, fd);
 
-
-        printf("hiiii");
-        // TO DELETE LATER
-        /////////////////////////////////////////////////////////////////////////////
-//        size_t size = strlen((char *) name.dptr) + strlen((char *) datamm.dptr) + 1;// +1 for the null-terminator
-//        char *result = dc_malloc(env, err, size);
-//        // in real code you would check for errors in malloc here
-//        strcpy(result, (char *) name.dptr);
-//        strcat(result, (char *) datamm.dptr);
-//        dc_write(env, err, fd, result, size);
-        /////////////////////////////////////////////////////////////////////////////////
-
-//        datum key = dc_dbm_firstkey(env, err, db);
-//        datum get_maj = dc_dbm_fetch(env, err, db, key);
-//        printf("got data: %s, %s\n", key.dptr, get_maj.dptr);
-
-//        char delim2[] = "|";
-//        char *delimPtr2 = delim2;
-//        datum key;
-//        datum get_maj;
-//        size_t size = 1;
-//        char *result = dc_malloc(env, err, size);
-//        strcpy(result, (char *) delimPtr2);
-//
-//
-//        for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
-//
-//            get_maj = dc_dbm_fetch(env, err, db, key);
-//            size += strlen((char *) key.dptr) + strlen((char *) get_maj.dptr) + strlen((char *) delimPtr2);// +1 for the null-terminator
-//            printf("size == %zu", size);
-//        }
-//
-//
-//        for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
-//
-//            get_maj = dc_dbm_fetch(env, err, db, key);
-//            printf("getting data: %s, %s\n", key.dptr, get_maj.dptr);
-//
-//            // in real code you would check for errors in malloc here
-//            strcat(result, (char *) key.dptr);
-//            strcat(result, (char *) get_maj.dptr);
-//            strcat(result, (char *) delimPtr2);
-//        }
-//
-//        dc_write(env, err, fd, result, size);
-//
-//        dc_free(env, result, size);
-
     }
 
     // Close the database
@@ -276,28 +228,28 @@ void Read_Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *type, 
 void get_data_from_database(struct dc_posix_env *env, struct dc_error *err, DBM *db, int fd) {
     char delim2[] = "|";
     char *delimPtr2 = delim2;
+    char delimComma[] = ",";
+    char *delimCommaPtr = delimComma;
     datum key;
     datum get_maj;
     size_t size = 1;
+
+    for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
+
+        get_maj = dc_dbm_fetch(env, err, db, key);
+        size += strlen((char *) key.dptr) + strlen((char *) delimCommaPtr) + strlen((char *) get_maj.dptr) + strlen((char *) delimPtr2);// +1 for the null-terminator
+    }
     char *result = dc_malloc(env, err, size);
     strcpy(result, (char *) delimPtr2);
 
-
     for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
 
         get_maj = dc_dbm_fetch(env, err, db, key);
-        size += strlen((char *) key.dptr) + strlen((char *) get_maj.dptr) + strlen((char *) delimPtr2);// +1 for the null-terminator
-        printf("size == %zu", size);
-    }
-
-
-    for(key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
-
-        get_maj = dc_dbm_fetch(env, err, db, key);
-        printf("getting data: %s, %s\n", key.dptr, get_maj.dptr);
+        printf("data: %s, %s\n", key.dptr, get_maj.dptr);
 
         // in real code you would check for errors in malloc here
         strcat(result, (char *) key.dptr);
+        strcat(result, (char *) delimCommaPtr);
         strcat(result, (char *) get_maj.dptr);
         strcat(result, (char *) delimPtr2);
     }
