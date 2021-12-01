@@ -62,7 +62,7 @@ find_library(LIBDC_UTIL dc_util REQUIRED)
 find_library(LIBDC_FSM dc_fsm REQUIRED)
 find_library(LIBDC_APPLICATION dc_application REQUIRED)
 find_library(LIBCONFIG config REQUIRED)
-
+find_library(LIBDC_NETWORK dc_network REQUIRED)
 ##################################################################
 
 find_library(LIB_NCURSES ncurses)
@@ -80,6 +80,7 @@ target_link_libraries(client PRIVATE ${LIBDC_POSIX})
 target_link_libraries(client PRIVATE ${LIBDC_UTIL})
 target_link_libraries(client PRIVATE ${LIBDC_FSM})
 target_link_libraries(client PRIVATE ${LIBDC_APPLICATION})
+target_link_libraries(client PRIVATE ${LIBDC_NETWORK})
 target_link_libraries(client PRIVATE ${LIBCONFIG})
 
 target_link_libraries(server PRIVATE ${LIBM})
@@ -88,6 +89,7 @@ target_link_libraries(server PRIVATE ${LIBDC_POSIX})
 target_link_libraries(server PRIVATE ${LIBDC_UTIL})
 target_link_libraries(server PRIVATE ${LIBDC_FSM})
 target_link_libraries(server PRIVATE ${LIBDC_APPLICATION})
+target_link_libraries(server PRIVATE ${LIBDC_NETWORK})
 target_link_libraries(server PRIVATE ${LIBCONFIG})
 
 target_link_libraries(ncurses_Interface PRIVATE ${LIBM})
@@ -96,8 +98,8 @@ target_link_libraries(ncurses_Interface PRIVATE ${LIBDC_POSIX})
 target_link_libraries(ncurses_Interface PRIVATE ${LIBDC_UTIL})
 target_link_libraries(ncurses_Interface PRIVATE ${LIBDC_FSM})
 target_link_libraries(ncurses_Interface PRIVATE ${LIBDC_APPLICATION})
+target_link_libraries(ncurses_Interface PRIVATE ${LIBDC_NETWORK})
 target_link_libraries(ncurses_Interface PRIVATE ${LIBCONFIG})
-
 
 set_target_properties(client PROPERTIES OUTPUT_NAME "client")
 set_target_properties(server PROPERTIES OUTPUT_NAME "server")

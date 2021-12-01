@@ -57,7 +57,7 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void
-Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *major, char *minor, char *latitude, char *longitude) {
+Write_dbm(const struct dc_posix_env *env, struct dc_error *err, char *major, char *minor, char *latitude, char *longitude) {
     DBM *db;
 
     //-----------------

@@ -124,6 +124,7 @@ src/server: /usr/local/lib/libdc_posix.so
 src/server: /usr/local/lib/libdc_util.so
 src/server: /usr/local/lib/libdc_fsm.so
 src/server: /usr/local/lib/libdc_application.so
+src/server: /usr/local/lib/libdc_network.so
 src/server: /usr/local/lib/libconfig.so
 src/server: src/CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/fadi/work/Project1_3980/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable server"

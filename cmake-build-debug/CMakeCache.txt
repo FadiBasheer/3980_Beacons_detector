@@ -248,6 +248,9 @@ LIBDC_ERROR:FILEPATH=/usr/local/lib/libdc_error.so
 LIBDC_FSM:FILEPATH=/usr/local/lib/libdc_fsm.so
 
 //Path to a library.
+LIBDC_NETWORK:FILEPATH=/usr/local/lib/libdc_network.so
+
+//Path to a library.
 LIBDC_POSIX:FILEPATH=/usr/local/lib/libdc_posix.so
 
 //Path to a library.

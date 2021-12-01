@@ -7,5 +7,6 @@ src/CMakeFiles/server.dir/common.c.o: \
 src/CMakeFiles/server.dir/db.c.o: \
  ../src/db.c
 src/CMakeFiles/server.dir/server.c.o: \
+ ../include/common.h \
  ../include/db.h \
  ../src/server.c

@@ -58,7 +58,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8082;
+            port = 8080;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
