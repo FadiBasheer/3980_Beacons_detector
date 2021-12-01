@@ -38,7 +38,7 @@ int main(void) {
     dc_error_init(&err, reporter);
     dc_posix_env_init(&env, tracer);
 
-    host_name = "10.65.65.133";
+    host_name = "192.168.0.18";
     //host_name = "localhost";
     dc_memset(&env, &hints, 0, sizeof(hints));
     hints.ai_family = PF_INET; // PF_INET6;
@@ -60,7 +60,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8080;
+            port = 8081;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -206,27 +206,36 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
             char *file_name = strtok(inputCopy + strlen(firstWord) + 2, " ");
             printf("\nBody is:%s\n", file_name);
             if (strncmp(file_name, "HTTP", 4) == 0) {
-                char respose_GET[] = "HTTP/1.0 200 OK\r\n"
-                                     "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
-                                     "Content-type: text/html\r\n"
-                                     "\r\n"
-
-                                     "<!Doctype html>\r\n"
-                                     "<html>\r\n"
-                                     "<head>\r\n"
-                                     "<title>GET response</title>\r\n"
-                                     "</head>\r\n"
-                                     "<body>\r\n"
-                                     "<div>\r\n"
-                                     "<h1>Examplehgjhgjhjgjhfgjhgjhgjhjh Domain</h1>\r\n"
-                                     "</div>\r\n"
-                                     "</body>"
-                                     "</html>\r\n\r\n";
-                *response = realloc(*response, strlen(respose_GET) + 1);
-
-                Read_dbm(env, err, 1);
+                char *data_from_DB = Read_dbm(env, err, 1);
+                printf("\nRead_dbm:%s\n", data_from_DB);
+                //free(data_from_DB);
                 // response = malloc(strlen(respose_PUT) + 1);
-                strcpy(*response, respose_GET);
+                char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
+                                            "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
+                                            "Content-type: text/html\r\n"
+                                            "\r\n"
+
+                                            "<!Doctype html>\r\n"
+                                            "<html>\r\n"
+                                            "<head>\r\n"
+                                            "<title>GET from file</title>\r\n"
+                                            "</head>\r\n"
+                                            "<body>\r\n"
+                                            "<div>\r\n"
+                                            "<h1>";
+                char response_GET_second[] = "</h1>\r\n"
+                                             "</div>\r\n"
+                                             "</body>"
+                                             "</html>\r\n\r\n";
+
+                dc_strcat(env, response_GET_first, data_from_DB);
+                dc_strcat(env, response_GET_first, response_GET_second);
+                *response = realloc(*response, strlen(response_GET_first) + 1);
+
+
+                // response = malloc(strlen(respose_PUT) + 1);
+                dc_strcpy(env, *response, response_GET_first);
+
                 printf("\nNcurses get\n");
 
             } else if (strcmp(file_name, "read_database") == 0) {
@@ -340,9 +349,9 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
 
         //PUT response
 
-        //404 when the database is empty
+        //404
 
-        //500 if any err has happened that we can not handle
+        //500
 
         while (token) {
             printf("token: %s %lu\n", token, strlen(token));

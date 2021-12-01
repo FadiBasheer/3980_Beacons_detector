@@ -10,6 +10,7 @@
 #include <string.h>
 #include <malloc.h>
 #include <dc_posix/dc_stdlib.h>
+#include <dc_posix/dc_string.h>
 
 #define NAME       "Arturo Crespo"
 #define PHONE_NO   "723-9273"
@@ -76,8 +77,8 @@ Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *major, char *min
     strcat(newVal, longitude);
     printf("TEST NEW VALUE = %s\n", newVal);
 
-    datum dataVal = {newVal, (int)strlen(newVal)};
-    datum dataKey = {newKey, (int)strlen(newKey)};
+    datum dataVal = {newVal, (int) strlen(newVal)};
+    datum dataKey = {newKey, (int) strlen(newKey)};
     // -----------------------
 
 
@@ -90,10 +91,12 @@ Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *major, char *min
 
 }
 
-void Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
+char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
     DBM *db;
     datum key;
     datum get_maj;
+
+    char response_GET_first[] = "Beacons in Data base\n";
     // TO DELETE LATER (these 2 lines)
 //    datum name = {NAME, sizeof(NAME)};
 //    datum datamm = {data, sizeof(data)};
@@ -105,8 +108,18 @@ void Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
 
     for (key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
         get_maj = dc_dbm_fetch(env, err, db, key);
-        printf("getting data: %s, %s\n", key.dptr, get_maj.dptr);
+        printf("\ngetting data: %s, %s\n", key.dptr, get_maj.dptr);
+        dc_strcat(env, response_GET_first, key.dptr);
+        dc_strcat(env, response_GET_first, "\r\n");
+        dc_strcat(env, response_GET_first, get_maj.dptr);
     }
+
+    printf("\nfinal database: %s\n", response_GET_first);
+    char *response = calloc(strlen(response_GET_first), sizeof(char));
+    strcat(response, response_GET_first);
+    response[strlen(response)] = '\0';
+
+
     // TO DELETE LATER
     /////////////////////////////////////////////////////////////////////////////
 //    size_t size = strlen((char *) name.dptr) + strlen((char *) datamm.dptr) + 1;// +1 for the null-terminator
@@ -120,4 +133,6 @@ void Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
 //    dc_free(env, result, size);
     // Close the database
     dc_dbm_close(env, err, db);
+    return response;
 }
+
