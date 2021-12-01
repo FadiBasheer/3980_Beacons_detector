@@ -76,8 +76,8 @@ Write_dbm(struct dc_posix_env *env, struct dc_error *err, char *major, char *min
     strcat(newVal, longitude);
     printf("TEST NEW VALUE = %s\n", newVal);
 
-    datum dataVal = {newVal, sizeof(newVal)};
-    datum dataKey = {newKey, sizeof(newKey)};
+    datum dataVal = {newVal, (int)strlen(newVal)};
+    datum dataKey = {newKey, (int)strlen(newKey)};
     // -----------------------
 
 
