@@ -60,7 +60,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8080;
+            port = 8082;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -104,6 +104,12 @@ int main(void) {
                             sigemptyset(&new_action.sa_mask);
                             new_action.sa_flags = 0;
                             dc_sigaction(&env, &err, SIGINT, &new_action, NULL);
+
+
+
+
+
+
 
                             while (!(exit_flag) && dc_error_has_no_error(&err)) {
                                 int client_socket_fd;
@@ -210,25 +216,12 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
                 char *data_from_DB = Read_dbm(env, err, 1);
 
                 char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
-                                            "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
                                             "Content-type: text/html\r\n\r\n";
 
-                *response = malloc((strlen(response_GET_first) +  strlen(data_from_DB)));
+                *response = malloc((strlen(response_GET_first) + strlen(data_from_DB)));
 
                 dc_strcpy(env, *response, response_GET_first);
                 dc_strcat(env, *response, data_from_DB);
-
-
-//                dc_strcat(env, response_GET_first, response_GET_first);
-//                dc_strcat(env, response_GET_first, data_from_DB);
-//                dc_strcat(env, response_GET_first, response_GET_second);
-//                *response = realloc(*response, (strlen(response_GET_first) + strlen(response_GET_second) + strlen(data_from_DB))+ 1);
-//
-//
-//                // response = malloc(strlen(respose_PUT) + 1);
-//                dc_strcpy(env, *response, response_GET_first);
-
-
 
                 printf("\nNcurses get: %s\n", *response);
 
@@ -236,7 +229,6 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
 
                 char *data_from_DB = Read_dbm(env, err, 1);
                 char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
-                                            "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
                                             "Content-type: text/html\r\n\r\n"
                                             "<!Doctype html>\r\n"
                                             "<html>\r\n"
@@ -280,7 +272,6 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
 
 
                 char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
-                                            "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
                                             "Content-type: text/html\r\n"
                                             "\r\n"
 
@@ -309,6 +300,8 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
                 fclose(fptr);
             }
             return_value = 1;
+
+            //PUT response
         } else if (strcmp(firstWord, "PUT") == 0) {
             // 2- getting the size of body
             char *sub;
@@ -342,7 +335,6 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
                 }
             }
             char respose_PUT[] = "HTTP/1.0 200 OK\r\n"
-                                 "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
                                  "Content-type: text/html\r\n"
                                  "\r\n"
 
@@ -364,7 +356,7 @@ int receive_data(struct dc_posix_env *env, struct dc_error *err, int fd, size_t 
             return_value = 2;
         }
 
-        //PUT response
+
 
         //404
 
