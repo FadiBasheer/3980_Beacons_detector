@@ -96,28 +96,48 @@ char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
     datum key;
     datum get_maj;
 
-    char response_GET_first[] = "Beacons in Data base\n";
-    // TO DELETE LATER (these 2 lines)
-//    datum name = {NAME, sizeof(NAME)};
-//    datum datamm = {data, sizeof(data)};
+    // char response[] = "Beacons in Data base";
+    char *response;
 
 
-
-    printf("\nget all data from database:\n");
     db = dc_dbm_open(env, err, DB_NAME, O_RDONLY, 0600);
 
     for (key = dc_dbm_firstkey(env, err, db); key.dptr != NULL; key = dc_dbm_nextkey(env, err, db)) {
         get_maj = dc_dbm_fetch(env, err, db, key);
         printf("\ngetting data: %s, %s\n", key.dptr, get_maj.dptr);
-        dc_strcat(env, response_GET_first, key.dptr);
-        dc_strcat(env, response_GET_first, "\r\n");
-        dc_strcat(env, response_GET_first, get_maj.dptr);
+
+        //response = calloc(strlen(key.dptr), sizeof(char));
+
+
+        response = calloc((strlen(get_maj.dptr) + strlen(key.dptr)), sizeof(char));
+        strcat(response, key.dptr);
+        strcat(response, get_maj.dptr);
+
+
+
+
+
+//        dc_strcat(env, response, key.dptr);
+//        //dc_strcat(env, response, "\r\n");
+//        dc_strcat(env, response, get_maj.dptr);
     }
 
-    printf("\nfinal database: %s\n", response_GET_first);
-    char *response = calloc(strlen(response_GET_first), sizeof(char));
-    strcat(response, response_GET_first);
-    response[strlen(response)] = '\0';
+
+//    char *response = calloc(strlen(response), sizeof(char));
+//    strcat(response, response);
+//    response[strlen(response)] = '\0';
+
+
+
+    printf("\nstrlen(response) + 1: %lu\n", strlen(response) + 1);
+
+
+//    size_t size = strlen(response) + 1;// +1 for the null-terminator
+//    char *result = dc_malloc(env, err, size);
+//    // in real code you would check for errors in malloc here
+//    strcpy(result, (char *) response);
+//    result[strlen(result)] = '\0';
+
 
 
     // TO DELETE LATER
@@ -133,6 +153,8 @@ char *Read_dbm(struct dc_posix_env *env, struct dc_error *err, int fd) {
 //    dc_free(env, result, size);
     // Close the database
     dc_dbm_close(env, err, db);
+
+    printf("\nfinal database: %s\n", response);
     return response;
 }
 
