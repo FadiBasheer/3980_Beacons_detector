@@ -121,7 +121,7 @@ struct dc_application_settings *create_settings(const struct dc_posix_env *env, 
     static const bool default_verbose = false;
     static const char *default_hostname = "localhost";
     static const char *default_ip = "IPv4";
-    static const uint16_t default_port = 8080;
+    static const uint16_t default_port = 8081;
     static const bool default_reuse = false;
     struct application_settings *settings;
 
@@ -332,6 +332,8 @@ bool do_accept(const struct dc_posix_env *env, struct dc_error *err, int *client
 
 
         char *response = NULL;
+
+        printf("client_socket_fd: %d\n", *client_socket_fd);
 
         int receive_status = receive_data(env, err, *client_socket_fd, BUFSIZ, &response);
         printf("\nResponse\n%s", response);
