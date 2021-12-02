@@ -18,6 +18,11 @@
 #include "common.h"
 #include <stdio.h>
 
+/**
+ * Display method displays the passed char*
+ * @param str
+ * @return
+ */
 int display(const char *str)
 {
     printf("%s\n", str);
