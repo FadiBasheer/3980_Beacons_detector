@@ -407,6 +407,7 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
         if (strcmp(firstWord, "GET") == 0) {
             char *file_name = strtok(inputCopy + strlen(firstWord) + 2, " ");
             printf("\nBody is:%s\n", file_name);
+            //Ncurses GET
             if (strncmp(file_name, "HTTP", 4) == 0) {
 
                 char *data_from_DB = Read_dbm(env, err, 1);
@@ -422,7 +423,7 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
 
                 printf("\nNcurses get: %s\n", *response);
 
-            } else if (strcmp(file_name, "read_database") == 0) {
+            } else if (strncmp(file_name, "read_database", 13) == 0) {
 
                 char *data_from_DB = Read_dbm(env, err, 1);
                 char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
@@ -449,54 +450,82 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
                 printf("\nRead from database\n");
 
             } else {
+                //404
                 printf("\nRead from file\n");
                 int num;
                 FILE *fptr;
 
-                if ((fptr = fopen("fadi.txt", "r")) == NULL) {
+                if ((fptr = fopen(file_name, "r")) == NULL) {
                     printf("Error! opening file");
+                    char respose_PUT[] = "HTTP/1.0 200 OK\r\n"
+                                         "Content-type: text/html\r\n"
+                                         "\r\n"
 
-                    // Program exits if the file pointer returns NULL.
+                                         "<!Doctype html>\r\n"
+                                         "<html>\r\n"
+                                         "<head>\r\n"
+                                         "<title>404 response</title>\r\n"
+                                         "</head>\r\n"
+                                         "<body>\r\n"
+                                         "<div>\r\n"
+                                         "<h1>404</h1>\r\n"
+                                         "</div>\r\n"
+                                         "</body>"
+                                         "</html>\r\n\r\n";
+                    *response = realloc(*response, strlen(respose_PUT) + 1);
+
+                    strcpy(*response, respose_PUT);
 //                    exit(1);
+                } else {
+                    fseek(fptr, 0, SEEK_END);
+                    long fsize = ftell(fptr);
+                    fseek(fptr, 0, SEEK_SET);  /* same as rewind(f); */
+
+                    char *string = malloc((unsigned long) (fsize + 1));
+
+                    memset(string, 0, (unsigned long) (fsize + 1));
+
+                    fread(string, 1, (unsigned long) fsize, fptr);
+                    printf("file contets is: %s", string);
+
+
+                    char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
+                                                "Content-type: text/html\r\n"
+                                                "\r\n"
+
+                                                "<!Doctype html>\r\n"
+                                                "<html>\r\n"
+                                                "<head>\r\n"
+                                                "<title>GET from file</title>\r\n"
+                                                "</head>\r\n"
+                                                "<body>\r\n"
+                                                "<div>\r\n"
+                                                "<h1>";
+                    char response_GET_second[] = "</h1>\r\n"
+                                                 "</div>\r\n"
+                                                 "</body>"
+                                                 "</html>\r\n\r\n";
+
+//                    dc_strcat(env, response_GET_first, string);
+//                    dc_strcat(env, response_GET_first, response_GET_second);
+//                    *response = realloc(*response, strlen(response_GET_first) + 1);
+//
+//
+//                    // response = malloc(strlen(respose_PUT) + 1);
+//                    dc_strcpy(env, *response, response_GET_first);
+
+                    *response = malloc((strlen(response_GET_first) + strlen(response_GET_second) + strlen(string)));
+
+                    dc_strcpy(env, *response, response_GET_first);
+                    dc_strcat(env, *response, string);
+                    dc_strcat(env, *response, response_GET_second);
+
+
+                    free(string);
+                    fclose(fptr);
                 }
-                fseek(fptr, 0, SEEK_END);
-                long fsize = ftell(fptr);
-                fseek(fptr, 0, SEEK_SET);  /* same as rewind(f); */
 
-                char *string = malloc((unsigned long) (fsize + 1));
-                fread(string, 1, (unsigned long) fsize, fptr);
-                printf("file contets is: %s", string);
-
-
-                char response_GET_first[] = "HTTP/1.0 200 OK\r\n"
-                                            "Content-type: text/html\r\n"
-                                            "\r\n"
-
-                                            "<!Doctype html>\r\n"
-                                            "<html>\r\n"
-                                            "<head>\r\n"
-                                            "<title>GET from file</title>\r\n"
-                                            "</head>\r\n"
-                                            "<body>\r\n"
-                                            "<div>\r\n"
-                                            "<h1>";
-                char response_GET_second[] = "</h1>\r\n"
-                                             "</div>\r\n"
-                                             "</body>"
-                                             "</html>\r\n\r\n";
-
-                dc_strcat(env, response_GET_first, string);
-                dc_strcat(env, response_GET_first, response_GET_second);
-                *response = realloc(*response, strlen(response_GET_first) + 1);
-
-
-                // response = malloc(strlen(respose_PUT) + 1);
-                dc_strcpy(env, *response, response_GET_first);
-
-                free(string);
-                fclose(fptr);
             }
-            return_value = 1;
 
             //PUT response
         } else if (strcmp(firstWord, "PUT") == 0) {
@@ -555,7 +584,7 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
 
 
 
-        //404
+
 
         //500
 
