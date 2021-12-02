@@ -23,7 +23,14 @@ static void quit_handler(int sig_num);
 
 static volatile sig_atomic_t exit_flag;
 
-
+/**
+ * main method runs the program.
+ * acts as a client and sends a get request to server.
+ * uses ncurses as a text based gui to show data
+ * received from server.
+ *
+ * @return
+ */
 int main(void) {
     dc_error_reporter reporter;
     dc_posix_tracer tracer;
@@ -80,6 +87,9 @@ int main(void) {
                 }
             }
 
+            /**
+             * Connects to the server.
+             */
             if (dc_error_has_no_error(&err)) {
                 dc_connect(&env, &err, socket_fd, sockaddr, sockaddr_size);
 
@@ -100,13 +110,15 @@ int main(void) {
                         strcpy(data, "GET / HTTP/1.0\r\n\r\n");
 
                         if (dc_error_has_no_error(&err)) {
-//                            while (dc_read(&env, &err, STDIN_FILENO, data, 1024) > 0 && dc_error_has_no_error(&err)) {
-//                                dc_write(&env, &err, socket_fd, data, strlen(data));
-//                                printf("READ %s\n", data);
-//                            }
 
-
-                            char mesg[] = "Enter a string: ";         /* message to be appeared on the screen */
+                            /**
+                             * starts ncurses window
+                             * gets input from user
+                             * based on input do a get request to the server.
+                             * servers responds back and display the data
+                             * on ncurses window.
+                             */
+                            char mesg[] = "Enter 1 to get data: ";         /* message to be appeared on the screen */
                             char str[80];
                             int row, col;                            /* to store the number of rows and *
                                                  * the number of colums of the screen */
@@ -114,28 +126,6 @@ int main(void) {
                             getmaxyx(stdscr, row, col);               /* get the number of rows and columns */
                             mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
 
-
-
-
-                            /* print the message at the center of the screen */
-//                            while (dc_error_has_no_error(&err)) {
-//                                getstr(str);
-//                                if (strcmp(str, "1") == 0) {
-//                                    strcpy(data,
-//                                           "GET / HTTP/1.0\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
-//                                    dc_write(&env, &err, socket_fd, data, strlen(data));
-//                                    mvprintw(LINES - 2, 0, "You Entered: %s", str);
-//                                } else if (strcmp(str, "2") == 0) {
-//                                    getch();
-//                                    endwin();
-//                                    break;
-//                                }
-//                            }
-//                            if (err.type == DC_ERROR_ERRNO && err.errno_code == EINTR) {
-//                                dc_error_reset(&err);
-//                            }
-                            ///////////////////////////////////////////////////////////////
-                            //while (strcmp(str, "1") == 0) {
                             getstr(str);
                             if (strcmp(str, "1") == 0) {
                                 strcpy(data,
@@ -158,21 +148,6 @@ int main(void) {
                                 endwin();
                           }
 
-
-
-                            ////////////////////////////////////////////////////////////
-                            //   }
-
-
-
-
-                            // char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
-
-//                            dc_read(&env, &err, socket_fd, comingdata, SIZE);
-//
-//                            printf("\nfirst world: %s\n", comingdata);
-//                            dc_free(&env, comingdata, SIZE);
-//                            ////////////////////////////////////////////////////////////
                         }
                     }
                 }

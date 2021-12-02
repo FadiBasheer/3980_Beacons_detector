@@ -86,6 +86,12 @@ void trace_reporter(__attribute__((unused)) const struct dc_posix_env *env,
                     size_t line_number);
 
 
+/**
+ * main method that runs the program.
+ * @param argc
+ * @param argv
+ * @return
+ */
 int main(int argc, char *argv[]) {
     dc_error_reporter reporter;
     dc_posix_tracer tracer;
@@ -116,7 +122,12 @@ int main(int argc, char *argv[]) {
     return ret_val;
 }
 
-
+/**
+ * struct for application settings.
+ * @param env
+ * @param err
+ * @return
+ */
 struct dc_application_settings *create_settings(const struct dc_posix_env *env, struct dc_error *err) {
     static const bool default_verbose = false;
     static const char *default_hostname = "localhost";
@@ -160,6 +171,14 @@ struct dc_application_settings *create_settings(const struct dc_posix_env *env, 
     return (struct dc_application_settings *) settings;
 }
 
+/**
+ * destroy settings method to destroy the application
+ * settings.
+ * @param env
+ * @param err
+ * @param psettings
+ * @return
+ */
 int destroy_settings(const struct dc_posix_env *env, __attribute__ ((unused)) struct dc_error *err,
                      struct dc_application_settings **psettings) {
     struct application_settings *app_settings;
@@ -178,7 +197,12 @@ int destroy_settings(const struct dc_posix_env *env, __attribute__ ((unused)) st
     return 0;
 }
 
-
+/**
+ * struct that creates lifecycle of the server.
+ * @param env
+ * @param err
+ * @return
+ */
 static struct dc_server_lifecycle *create_server_lifecycle(const struct dc_posix_env *env, struct dc_error *err) {
     struct dc_server_lifecycle *lifecycle;
 
@@ -196,12 +220,23 @@ static struct dc_server_lifecycle *create_server_lifecycle(const struct dc_posix
     return lifecycle;
 }
 
+/**
+ * destroys lifecycle of server.
+ * @param env
+ * @param plifecycle
+ */
 static void destroy_server_lifecycle(const struct dc_posix_env *env, struct dc_server_lifecycle **plifecycle) {
     DC_TRACE(env);
     dc_server_lifecycle_destroy(env, plifecycle);
 }
 
-
+/**
+ * Run method runs the program.
+ * @param env
+ * @param err
+ * @param settings
+ * @return
+ */
 int run(const struct dc_posix_env *env, __attribute__ ((unused)) struct dc_error *err,
         struct dc_application_settings *settings) {
     int ret_val;
@@ -223,12 +258,21 @@ int run(const struct dc_posix_env *env, __attribute__ ((unused)) struct dc_error
     return ret_val;
 }
 
-
+/**
+ * catches the signal.
+ * @param signnum
+ */
 void signal_handler(__attribute__ ((unused)) int signnum) {
     printf("caught\n");
     exit_signal = 1;
 }
 
+/**
+ * creates application settings.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_create_settings(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
     struct application_settings *app_settings;
     const char *ip_version;
@@ -257,6 +301,12 @@ void do_create_settings(const struct dc_posix_env *env, struct dc_error *err, vo
     }
 }
 
+/**
+ * code to create socket.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_create_socket(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
     struct application_settings *app_settings;
     int socket_fd;
@@ -273,6 +323,12 @@ void do_create_socket(const struct dc_posix_env *env, struct dc_error *err, void
     }
 }
 
+/**
+ * sets socket options.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_set_sockopts(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
     struct application_settings *app_settings;
     bool reuse_address;
@@ -283,6 +339,12 @@ void do_set_sockopts(const struct dc_posix_env *env, struct dc_error *err, void 
     dc_network_opt_ip_so_reuse_addr(env, err, app_settings->server_socket_fd, reuse_address);
 }
 
+/**
+ * Includes code for binding.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_bind(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
     struct application_settings *app_settings;
     uint16_t port;
@@ -298,6 +360,12 @@ void do_bind(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
                     port);
 }
 
+/**
+ * Does listening.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_listen(const struct dc_posix_env *env, struct dc_error *err, void *arg) {
     struct application_settings *app_settings;
     int backlog;
@@ -308,11 +376,25 @@ void do_listen(const struct dc_posix_env *env, struct dc_error *err, void *arg) 
     dc_network_listen(env, err, app_settings->server_socket_fd, backlog);
 }
 
+/**
+ * Does setup.
+ * @param env
+ * @param err
+ * @param arg
+ */
 void do_setup(const struct dc_posix_env *env, __attribute__ ((unused)) struct dc_error *err,
               __attribute__ ((unused)) void *arg) {
     DC_TRACE(env);
 }
 
+/**
+ * Does accept.
+ * @param env
+ * @param err
+ * @param client_socket_fd
+ * @param arg
+ * @return
+ */
 bool do_accept(const struct dc_posix_env *env, struct dc_error *err, int *client_socket_fd, void *arg) {
     struct application_settings *app_settings;
     bool ret_val;
@@ -367,6 +449,18 @@ bool do_accept(const struct dc_posix_env *env, struct dc_error *err, int *client
     return ret_val;
 }
 
+/**
+ * Receives request from client
+ * checks if its get or put request
+ * responds back to the client with a response.
+ *
+ * @param env
+ * @param err
+ * @param fd
+ * @param size
+ * @param response
+ * @return
+ */
 int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, size_t size, char **response) {
     // more efficient would be to allocate the buffer in the caller (main) so we don't have to keep
     // mallocing and freeing the same data over and over again.
