@@ -46,7 +46,7 @@ int main(void) {
     dc_error_init(&err, reporter);
     dc_posix_env_init(&env, tracer);
 
-    host_name = "10.65.65.133";
+    host_name = "192.168.0.18";
     dc_memset(&env, &hints, 0, sizeof(hints));
     hints.ai_family = PF_INET; // PF_INET6;
     hints.ai_socktype = SOCK_STREAM;
@@ -65,7 +65,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8080;
+            port = 8081;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -126,27 +126,22 @@ int main(void) {
                             getmaxyx(stdscr, row, col);               /* get the number of rows and columns */
                             mvprintw(row / 2, (col - strlen(mesg)) / 2, "%s", mesg);
 
-                            getstr(str);
-                            if (strcmp(str, "1") == 0) {
-                                strcpy(data,
-                                       "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: /\r\n\r\n");
-                                dc_write(&env, &err, socket_fd, data, strlen(data));
-                                printw("\n\nBecans(major-minor,lat-ln)");
 
-                                char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
+                            strcpy(data,
+                                   "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: /\r\n\r\n");
+                            dc_write(&env, &err, socket_fd, data, strlen(data));
+                            printw("\n\nBecans(major-minor,lat-ln)");
 
-                                dc_read(&env, &err, socket_fd, comingdata, SIZE);
+                            char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
 
-                                printw("\n%s\n", comingdata);
+                            dc_read(&env, &err, socket_fd, comingdata, SIZE);
 
-                                dc_free(&env, comingdata, SIZE);
-                                getch();
-                                endwin();
+                            printw("\n%s\n", comingdata);
 
-                            } else {
-                                getch();
-                                endwin();
-                          }
+                            dc_free(&env, comingdata, SIZE);
+                            getch();
+                            endwin();
+
 
                         }
                     }

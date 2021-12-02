@@ -410,9 +410,6 @@ bool do_accept(const struct dc_posix_env *env, struct dc_error *err, int *client
         }
     } else {
 
-        ///////////////////////////////////////////////////////////////////
-
-
         char *response = NULL;
 
         printf("client_socket_fd: %d\n", *client_socket_fd);
@@ -424,26 +421,6 @@ bool do_accept(const struct dc_posix_env *env, struct dc_error *err, int *client
         dc_dc_close(env, err, *client_socket_fd);
         exit_flag = 0;
 
-
-
-//        while (!(exit_flag) && dc_error_has_no_error(&err)) {
-//            char *response = NULL;
-//            if (dc_error_has_no_error(&err)) {
-//
-//                int receive_status = receive_data(&env, &err, client_socket_fd, BUFSIZ, &response);
-//                printf("\nResponse\n%s", response);
-//                dc_send(&env, &err, client_socket_fd, response, strlen(response), 0);
-//                free(response);
-//                dc_dc_close(&env, &err, client_socket_fd);
-//                exit_flag = 0;
-//
-//
-//            } else {
-//                if (err.type == DC_ERROR_ERRNO && err.errno_code == EINTR) {
-//                    dc_error_reset(&err);
-//                }
-//            }
-//        }
     }
 
     return ret_val;
@@ -473,18 +450,6 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
         dc_write(env, err, STDOUT_FILENO, data, (size_t) count);
         //  &data[length - count]
         char *token;
-        char *tokenBody;
-        char *lastToken;
-        char *ptr;
-
-        char buff[50];
-
-
-        //----------------test area-------------------
-
-
-
-        //----------------test area-------------------
 
         //1-check if it's GET or PUT
         // walk through tokens
@@ -569,7 +534,6 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
                     *response = realloc(*response, strlen(respose_PUT) + 1);
 
                     strcpy(*response, respose_PUT);
-//                    exit(1);
                 } else {
                     fseek(fptr, 0, SEEK_END);
                     long fsize = ftell(fptr);
@@ -600,13 +564,6 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
                                                  "</body>"
                                                  "</html>\r\n\r\n";
 
-//                    dc_strcat(env, response_GET_first, string);
-//                    dc_strcat(env, response_GET_first, response_GET_second);
-//                    *response = realloc(*response, strlen(response_GET_first) + 1);
-//
-//
-//                    // response = malloc(strlen(respose_PUT) + 1);
-//                    dc_strcpy(env, *response, response_GET_first);
 
                     *response = malloc((strlen(response_GET_first) + strlen(response_GET_second) + strlen(string)));
 
@@ -627,12 +584,6 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
             char *sub;
             sub = strstr(data, "Content-Length: ");
             if (sub != NULL) {
-                // printf("\nSubstring is: %s", sub + 17);
-                char *begin = strchr(sub, ' ');
-                char *end = strchr(begin, '\r');
-
-//                memcpy(buff, begin, (unsigned long) (end - begin));
-//                printf("\nContent-Length is: %s", buff);
 
                 //3-Tokenize the body----------------------
                 char *body;
@@ -671,25 +622,9 @@ int receive_data(const struct dc_posix_env *env, struct dc_error *err, int fd, s
                                  "</html>\r\n\r\n";
             *response = realloc(*response, strlen(respose_PUT) + 1);
 
-            // response = malloc(strlen(respose_PUT) + 1);
             strcpy(*response, respose_PUT);
             return_value = 2;
         }
-
-
-
-
-
-        //500
-
-//        while (token) {
-//            printf("token: %s %lu\n", token, strlen(token));
-//            token = strtok_r(data, "\r\n", &data);
-//            lastToken = token;
-//        }
-//
-//        printf("\nlast token: %s\n", lastToken);
-
 
         exit_flag = 1;
     }
@@ -738,68 +673,3 @@ trace(__attribute__ ((unused)) const struct dc_posix_env *env, const char *file_
       size_t line_number) {
     fprintf(stdout, "TRACE: %s : %s : @ %zu\n", file_name, function_name, line_number);
 }
-
-
-//                sub = strstr(body + 4, "latitude=");
-////               // tokenBody = strtok_r(body + 4, "-", &body);
-//                char *begin_lat = strchr(sub, '=');
-//                char *end_lat = strchr(begin_lat, '&');
-//                char longitude_number[end_lat - begin_lat-1];
-//                printf("\nlengthhhhhhhhhh: %ld\n", end_lat - begin_lat);
-//                strncpy(longitude_number, begin_lat, (unsigned long) (end_lat - begin_lat));
-//                printf("\nlatitude: %s\n", longitude_number);
-
-
-
-
-//connect
-//read
-//write
-//close
-
-
-//
-//    char response[] = "HTTP/1.0 200 OK\r\n"
-//                      "Date: Monday, 24-Apr-95 12:04:12 GMT\r\n"
-//                      "Content-type: text/html\r\n"
-//                      "\r\n"
-//                      "message body"
-//                      "\r\n\r\n";
-//    printf("Greeting message: %s\n", response);
-//
-//    dc_send(env, err, fd, &response, strlen(response), 0);
-/*
- *
-int strncmp(const char *str1, const char *str2, size_t n)
-
-Parameters
-
-str1 − This is the first string to be compared.
-
-str2 − This is the second string to be compared.
-
-n − The maximum number of characters to be compared.
-
-Return Value
-
-This function return values that are as follows −
-
-if Return value < 0 then it indicates str1 is less than str2.
-
-if Return value > 0 then it indicates str2 is less than str1.
-
-if Return value = 0 then it indicates str1 is equal to str2.
-*/
-
-
-//The C library function strcspn() calculates the length of the number of characters before the 1st occurrence of character present in both the string.
-
-
-/*
-strcmp vs strncmp
-* bothe of them compare from the first char, not string contain
-strcmp compares both the strings till null-character of either string comes, whereas strncmp compares at most num characters of both strings.
- But if num is equal to the length of either string than strncmp behaves similar to strcmp.
-Problem with strcmp function is that if both of the strings passed in the argument is not terminated by null-character, then comparison of
- characters continues till the system crashes. But with strncmp function we can limit the comparison with num parameter.
-*/
