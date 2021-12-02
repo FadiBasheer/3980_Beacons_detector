@@ -39,7 +39,7 @@ int main(void) {
     dc_error_init(&err, reporter);
     dc_posix_env_init(&env, tracer);
 
-    host_name = "10.65.65.133";
+    host_name = "localhost";
     dc_memset(&env, &hints, 0, sizeof(hints));
     hints.ai_family = PF_INET; // PF_INET6;
     hints.ai_socktype = SOCK_STREAM;
@@ -58,7 +58,7 @@ int main(void) {
             socklen_t sockaddr_size;
 
             sockaddr = result->ai_addr;
-            port = 8080;
+            port = 8081;
             converted_port = htons(port);
 
             if (sockaddr->sa_family == AF_INET) {
@@ -117,62 +117,33 @@ int main(void) {
 
 
 
-                            /* print the message at the center of the screen */
-//                            while (dc_error_has_no_error(&err)) {
-//                                getstr(str);
-//                                if (strcmp(str, "1") == 0) {
-//                                    strcpy(data,
-//                                           "GET / HTTP/1.0\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: */*\r\n\r\n");
-//                                    dc_write(&env, &err, socket_fd, data, strlen(data));
-//                                    mvprintw(LINES - 2, 0, "You Entered: %s", str);
-//                                } else if (strcmp(str, "2") == 0) {
-//                                    getch();
-//                                    endwin();
-//                                    break;
-//                                }
-//                            }
-//                            if (err.type == DC_ERROR_ERRNO && err.errno_code == EINTR) {
-//                                dc_error_reset(&err);
-//                            }
-                            ///////////////////////////////////////////////////////////////
-                            //while (strcmp(str, "1") == 0) {
-                            getstr(str);
-                            if (strcmp(str, "1") == 0) {
-                                strcpy(data,
-                                       "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: /\r\n\r\n");
-                                dc_write(&env, &err, socket_fd, data, strlen(data));
-                                printw("\n\nBecans(major-minor,lat-ln)");
-
-                                char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
-
-                                dc_read(&env, &err, socket_fd, comingdata, SIZE);
-
-                                printw("\n%s\n", comingdata);
-
-                                dc_free(&env, comingdata, SIZE);
-                                getch();
-                                endwin();
-
-                            } else {
-                                getch();
-                                endwin();
-                          }
-
-
-
-                            ////////////////////////////////////////////////////////////
-                            //   }
 
 
 
 
-                            // char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
 
-//                            dc_read(&env, &err, socket_fd, comingdata, SIZE);
-//
-//                            printf("\nfirst world: %s\n", comingdata);
-//                            dc_free(&env, comingdata, SIZE);
-//                            ////////////////////////////////////////////////////////////
+//                            getstr(str);
+//                            if (strcmp(str, "1") == 0) {
+                            strcpy(data,
+                                   "GET / HTTP/1.1\nHost: 127.0.0.1:8081\nUser-Agent: curl/7.68.0\nAccept: /\r\n\r\n");
+                            dc_write(&env, &err, socket_fd, data, strlen(data));
+                            printw("\n\nBecans(major-minor,lat-ln)");
+
+                            char *comingdata = dc_malloc(&env, &err, SIZE); //I should change the size
+
+                            dc_read(&env, &err, socket_fd, comingdata, SIZE);
+
+                            printw("\n%s\n", comingdata);
+
+                            dc_free(&env, comingdata, SIZE);
+                            getch();
+                            endwin();
+
+//                            } else {
+//                                getch();
+//                                endwin();
+//                          }
+
                         }
                     }
                 }
